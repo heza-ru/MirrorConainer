@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mirror Container</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Main Container -->
+    <div id="app">
+        <!-- URL Input Form -->
+        <div id="url-form" class="form-container">
+            <div class="form-card">
+                <h1>Mirror Container</h1>
+                <p>Configure your mirror and roleplay URLs</p>
+                
+                <form id="urls-form">
+                    <div class="input-group">
+                        <label for="mirror-url">Mirror URL</label>
+                        <input 
+                            type="url" 
+                            id="mirror-url" 
+                            placeholder="https://whatfix.com/service/mirror/serve/..."
+                            required
+                        >
+                    </div>
+                    
+                    <div class="input-group">
+                        <label for="roleplay-url">Roleplay URL</label>
+                        <input 
+                            type="url" 
+                            id="roleplay-url" 
+                            placeholder="https://roleplay.mindtickle.com/..."
+                            required
+                        >
+                    </div>
+                    
+                    <button type="submit" class="submit-btn">
+                        <span>Launch</span>
+                        <svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                            <path d="M5 12h14M12 5l7 7-7 7"/>
+                        </svg>
+                    </button>
+                </form>
+            </div>
+        </div>
+
+        <!-- Iframe Container -->
+        <div id="iframe-container" class="iframe-container hidden">
+            <!-- Mirror iframe (80% width) -->
+            <iframe id="mirror-iframe" class="mirror-iframe" allow="camera;microphone"></iframe>
+            
+            <!-- Roleplay iframe (20% width) -->
+            <iframe id="roleplay-iframe" class="roleplay-iframe" allow="camera;microphone"></iframe>
+        </div>
+
+        <!-- Settings Panel -->
+        <div id="settings-panel" class="settings-panel hidden">
+            <div class="settings-content">
+                <div class="settings-header">
+                    <h3>Settings</h3>
+                    <button id="close-settings" class="close-btn">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                            <path d="M18 6L6 18M6 6l12 12"/>
+                        </svg>
+                    </button>
+                </div>
+                
+                <form id="settings-form">
+                    <div class="input-group">
+                        <label for="settings-mirror-url">Mirror URL</label>
+                        <input 
+                            type="url" 
+                            id="settings-mirror-url" 
+                            placeholder="https://whatfix.com/service/mirror/serve/..."
+                        >
+                    </div>
+                    
+                    <div class="input-group">
+                        <label for="settings-roleplay-url">Roleplay URL</label>
+                        <input 
+                            type="url" 
+                            id="settings-roleplay-url" 
+                            placeholder="https://roleplay.mindtickle.com/..."
+                        >
+                    </div>
+                    
+                    <div class="input-group">
+                        <label for="roleplay-mode">Roleplay Mode</label>
+                        <select id="roleplay-mode" class="roleplay-mode-select">
+                            <option value="fallback">New Window (Recommended)</option>
+                            <option value="iframe">Try Iframe (Will be blocked)</option>
+                            <option value="popup">Popup Window</option>
+                        </select>
+                    </div>
+                    
+                    <div class="button-group">
+                        <button type="submit" class="update-btn">Update</button>
+                        <button type="button" id="reset-btn" class="reset-btn">Reset</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <!-- Settings Toggle Button -->
+        <button id="settings-toggle" class="settings-toggle hidden">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                <circle cx="12" cy="12" r="3"/>
+                <path d="M12 1v6m0 6v6m11-7h-6m-6 0H1"/>
+            </svg>
+        </button>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
